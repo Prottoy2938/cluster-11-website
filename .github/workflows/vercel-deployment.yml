@@ -2,4 +2,4 @@
   uses: amondnet/vercel-action@v19.0.1+1
   with:
     # Vercel token
-    vercel-token: LQoa6L8QGQuaqjZAEchGyJ7n
+    vercel-token: ${{ secrets.VERCEL_TOKEN }}
