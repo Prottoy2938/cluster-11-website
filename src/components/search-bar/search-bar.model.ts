@@ -10,6 +10,3 @@ export interface Hits {
     };
   };
 }
-export interface Props {
-  applicationName: any;
-}

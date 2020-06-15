@@ -7,7 +7,7 @@ import Router from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import { v4 as uuid } from "uuid";
 import algoliaSvg from "../../../public/algolia-logo.svg";
-import { Hits, Props } from "./search-bar.model";
+import { Hits } from "./search-bar.model";
 import styles from "./search-bar.module.css";
 
 const searchClient = algoliasearch(
@@ -16,11 +16,10 @@ const searchClient = algoliasearch(
 ); //data from a next.config.js file. Get your own id from algoliaSearch.
 const index = searchClient.initIndex("application-name");
 
-const SearchBar: React.FC<Props> = (props: Props) => {
-  const { applicationName } = props;
+const SearchBar: React.FC = () => {
   const [hits, setHits] = useState<Hits[]>([]);
   const [cursor, setCursor] = useState(0);
-  const [value, setValue] = useState(applicationName); //initial value comes from the url query
+  const [value, setValue] = useState(""); //initial value comes from the url query
   const [suggestionOpen, setSuggestionOpen] = useState(true);
   const cancelAsync = useRef(true);
 

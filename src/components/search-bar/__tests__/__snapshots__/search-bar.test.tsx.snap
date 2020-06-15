@@ -15,10 +15,10 @@ exports[`should take a snapshot 1`] = `
         id="search-field"
         spellcheck="false"
         type="text"
-        value="chicken"
+        value=""
       />
       <button
-        aria-label="add to shopping cart"
+        aria-label="search"
         class="MuiButtonBase-root MuiIconButton-root searchIconContainer MuiIconButton-colorPrimary"
         tabindex="0"
         type="button"
