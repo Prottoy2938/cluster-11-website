@@ -9,10 +9,6 @@ import { v4 as uuid } from "uuid";
 import algoliaSvg from "../../../public/algolia-logo.svg";
 import { Hits, Props } from "./search-bar.model";
 import styles from "./search-bar.module.css";
-console.log(
-  process.env.NEXT_PUBLIC_SEARCH_ID,
-  process.env.NEXT_PUBLIC_SEARCH_KEY
-);
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_SEARCH_ID,
