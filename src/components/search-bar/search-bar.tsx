@@ -55,25 +55,25 @@ const SearchBar: React.FC<Props> = (props: Props) => {
     } else if (e.keyCode === 27) {
       setSuggestionOpen(false);
     }
-    //Handling submit and change url based on the specified recipe.
+    //Handling submit and change url based on the selected suggestion
     else if (e.keyCode === 13) {
       e.preventDefault();
-      const href = `/recipes?recipe=${value.toLowerCase().replace(/ /g, "-")}`;
+      const href = `/webapp?app=${value.toLowerCase().replace(/ /g, "-")}`;
       Router.push(href);
       setSuggestionOpen(false);
     }
   };
 
   const handleSearchIconClick = (): void => {
-    const asPath = `/recipes?recipe=${value.toLowerCase().replace(/ /g, "-")}`;
-    const path = `/recipes?recipe=${encodeURIComponent(value)}`;
+    const asPath = `/webapp?app=${value.toLowerCase().replace(/ /g, "-")}`;
+    const path = `/webapp?app=${encodeURIComponent(value)}`;
     Router.push(path, asPath);
     setSuggestionOpen(false);
   };
 
   const handleSuggestionClick = (e: number): void => {
     const suggestionValue = document.getElementById(e.toString()).innerText;
-    const href = `/recipes?recipe=${suggestionValue
+    const href = `/webapp?app=${suggestionValue
       .toLowerCase()
       .replace(/ /g, "-")}`;
     Router.push(href);
@@ -128,7 +128,7 @@ const SearchBar: React.FC<Props> = (props: Props) => {
         <IconButton
           className={styles.searchIconContainer}
           color="primary"
-          aria-label="add to shopping cart"
+          aria-label="search"
           onClick={handleSearchIconClick}
         >
           <SearchIcon />
