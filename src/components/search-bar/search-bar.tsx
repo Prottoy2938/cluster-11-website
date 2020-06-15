@@ -13,7 +13,7 @@ import styles from "./search-bar.module.css";
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_SEARCH_ID,
   process.env.NEXT_PUBLIC_SEARCH_KEY
-); //data from a next.config.js file. Get your own id from algoliaSearch.
+);
 const index = searchClient.initIndex("application-name");
 
 const SearchBar: React.FC = () => {
