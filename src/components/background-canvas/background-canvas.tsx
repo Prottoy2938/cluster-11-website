@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
-import styles from "./bouncing-ball-canvas.module.css";
+import styles from "./background-canvas.module.css";
 
-const BouncingBallCanvas: React.FC = (props) => {
+const BackgroundCanvas: React.FC = () => {
   const canvas = useRef(null);
 
   useEffect(() => {
@@ -223,7 +223,7 @@ const BouncingBallCanvas: React.FC = (props) => {
         );
         canvas.current.addEventListener(
           "touchend",
-          function (e) {
+          function () {
             touchStartY = null;
             touchMoveY = null;
             touchEndY = null;
@@ -240,4 +240,4 @@ const BouncingBallCanvas: React.FC = (props) => {
   );
 };
 
-export default BouncingBallCanvas;
+export default BackgroundCanvas;
