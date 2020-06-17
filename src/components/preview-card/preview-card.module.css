@@ -1,0 +1,16 @@
+.root {
+  max-width: 345px;
+  justify-content: space-between;
+}
+.media {
+  height: 0;
+  padding-top: 56.25%;
+}
+
+.avatar {
+  background-color: rgb(143, 15, 15);
+}
+
+.actionContainer {
+  justify-content: space-between;
+}

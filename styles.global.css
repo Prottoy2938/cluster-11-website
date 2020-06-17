@@ -4,3 +4,8 @@ body {
   height: 100%;
   margin: 0;
 }
+
+/* For CardPreview title header */
+.MuiCardHeader-content span {
+  font-size: 1.35em;
+}
