@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should take and match snapshot 1`] = `
-<DocumentFragment>
-  <div>
-    <canvas
-      class="canvas"
-    />
-  </div>
-</DocumentFragment>
+exports[`renders correctly 1`] = `
+<div>
+  <canvas
+    className="canvas"
+  />
+</div>
 `;

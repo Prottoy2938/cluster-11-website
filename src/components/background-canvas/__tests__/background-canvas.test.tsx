@@ -1,10 +1,18 @@
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
 import BackgroundCanvas from "../background-canvas";
+import renderer from "react-test-renderer";
 
-afterEach(cleanup);
+function createNodeMock(element) {
+  if (element.type === "input") {
+    return {
+      focus() {},
+    };
+  }
+  return null;
+}
 
-test("should take and match snapshot", () => {
-  const { asFragment } = render(<BackgroundCanvas />);
-  expect(asFragment(<BackgroundCanvas />)).toMatchSnapshot();
+it("renders correctly", () => {
+  const options = { createNodeMock };
+  const tree = renderer.create(<BackgroundCanvas />, options);
+  expect(tree).toMatchSnapshot();
 });
