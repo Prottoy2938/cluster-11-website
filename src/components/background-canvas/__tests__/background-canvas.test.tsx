@@ -4,7 +4,7 @@ import BackgroundCanvas from "../background-canvas";
 
 afterEach(cleanup);
 
-test("should take a snapshot", () => {
+test("should take and match snapshot", () => {
   const { asFragment } = render(<BackgroundCanvas />);
   expect(asFragment(<BackgroundCanvas />)).toMatchSnapshot();
 });
