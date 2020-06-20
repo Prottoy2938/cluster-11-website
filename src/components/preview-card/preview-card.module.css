@@ -1,6 +1,14 @@
+.container {
+  width: 380px;
+  margin: 0 auto;
+  margin-bottom: 5vh; /* margin between the components */
+  border: 2px solid transparent;
+}
+
 .root {
-  max-width: 345px;
+  max-width: 90%;
   justify-content: space-between;
+  margin: 3% auto;
 }
 .media {
   height: 0;
@@ -13,4 +21,9 @@
 
 .actionContainer {
   justify-content: space-between;
+}
+
+.container:hover {
+  border: 2px dashed rgb(226, 130, 130);
+  border-radius: 22px 40px 15px 40px;
 }
