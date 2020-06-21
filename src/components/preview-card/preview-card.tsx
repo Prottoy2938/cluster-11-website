@@ -34,7 +34,12 @@ const PreviewCard: React.FC<Props> = (props: Props) => {
                 aria-label="Give it a Star on GitHub"
                 onClick={handleGithubClick}
               >
-                <FontAwesomeIcon icon={faCoffee} />
+                <img
+                  src="/github-alt-brands.svg"
+                  alt="github"
+                  width="32px"
+                  height="32px"
+                />
               </IconButton>
             </Tooltip>
           }
