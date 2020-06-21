@@ -20,7 +20,26 @@
 }
 
 .container:hover {
-  transform: scale(1.01);
+  transform: scale(1.008);
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+div .learnMoreBtn {
+  background-color: white;
+  height: 30px;
+}
+
+div .learnMoreBtn:hover {
+  background-color: white;
+}
+
+.learnMoreIcon {
+  padding: 0;
+}
+
+.learnMoreBtn:hover .learnMoreIcon {
+  transform: translateX(10px);
+  background-color: white;
   transition: 0.2s ease-in-out;
 }

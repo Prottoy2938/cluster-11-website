@@ -8,10 +8,9 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Tooltip from "@material-ui/core/Tooltip";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Props } from "./preview-card.model";
 import styles from "./preview-card.module.css";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 
 const PreviewCard: React.FC<Props> = (props: Props) => {
   const { title, description, githubURL, image, demoURL } = props;
@@ -56,7 +55,15 @@ const PreviewCard: React.FC<Props> = (props: Props) => {
             Demo
           </Button>
 
-          <Button variant="contained">Details</Button>
+          <Button variant="contained" className={styles.learnMoreBtn}>
+            Learn More
+            <IconButton
+              aria-label="learn-more"
+              className={styles.learnMoreIcon}
+            >
+              <ArrowRightAltIcon />
+            </IconButton>
+          </Button>
         </CardActions>
       </Card>
     </div>
