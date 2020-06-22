@@ -3,6 +3,13 @@
   margin: 0 auto;
   margin-bottom: 5vh; /* margin between the components */
   border: 2px solid transparent;
+  font-family: "Roboto Condensed", sans-serif !important;
+}
+
+.container:hover {
+  transform: scale(1.008);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
 
 .root {
@@ -15,20 +22,26 @@
   padding-top: 56.25%;
 }
 
-.actionContainer {
-  justify-content: space-between;
+.titleContainer {
+  font-weight: 600;
+  font-size: 17px;
 }
 
-.container:hover {
-  transform: scale(1.008);
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
+div .descriptionContainer {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 15px;
+}
+
+.actionContainer {
+  justify-content: space-between;
 }
 
 div .demoBtn {
   background-color: rgb(255, 149, 73);
   padding: 6px 20px;
   border-radius: 0;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 600;
 }
 
 div .demoBtn:hover {
@@ -36,23 +49,49 @@ div .demoBtn:hover {
   border-radius: 10%;
 }
 
-div .learnMoreBtn {
+div .learnMoreContainer {
   background-color: white;
   height: 35px;
   border: 2px solid rgb(216, 58, 255);
+  margin: 0;
+  display: inline-flex;
+  outline: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  border-radius: 0;
+  vertical-align: middle;
+  -moz-appearance: none;
+  justify-content: center;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  min-width: 64px;
+  box-sizing: border-box;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-weight: 600;
+  line-height: 1.75;
+  border-radius: 4px;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
 }
 
-div .learnMoreBtn:hover {
+div .learnMoreContainer:hover {
   color: black;
   background-color: rgb(216, 58, 255);
 }
 
-.learnMoreBtn .learnMoreIcon {
+.learnMoreContainer .learnMoreIcon {
   margin-left: 3px;
   padding: 0;
 }
 
-.learnMoreBtn:hover .learnMoreIcon {
+.learnMoreContainer:hover .learnMoreIcon {
   transform: translateX(10px);
   transition: 0.2s ease-in-out;
   background-color: rgba(10, 10, 10, 0.658);

@@ -42,11 +42,17 @@ const PreviewCard: React.FC<Props> = (props: Props) => {
               </IconButton>
             </Tooltip>
           }
+          className={styles.titleContainer}
           title={title}
         />
         <CardMedia className={styles.media} image={image} />
         <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            className={styles.descriptionContainer}
+          >
             {description}
           </Typography>
         </CardContent>
@@ -59,7 +65,7 @@ const PreviewCard: React.FC<Props> = (props: Props) => {
             Demo
           </Button>
 
-          <Button variant="contained" className={styles.learnMoreBtn}>
+          <div className={styles.learnMoreContainer}>
             More Details
             <IconButton
               aria-label="learn-more"
@@ -67,7 +73,7 @@ const PreviewCard: React.FC<Props> = (props: Props) => {
             >
               <ArrowRightAltIcon />
             </IconButton>
-          </Button>
+          </div>
         </CardActions>
       </Card>
     </div>

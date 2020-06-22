@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: sans-serif;
+  font-family: "Roboto Condensed", sans-serif !important;
   height: 100%;
 }
 
