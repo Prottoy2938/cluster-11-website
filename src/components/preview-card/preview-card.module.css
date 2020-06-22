@@ -25,21 +25,36 @@
   transition: 0.2s ease-in-out;
 }
 
+div .demoBtn {
+  background-color: rgb(255, 149, 73);
+  padding: 6px 20px;
+  border-radius: 0;
+}
+
+div .demoBtn:hover {
+  background-color: rgb(255, 112, 10);
+  border-radius: 10%;
+}
+
 div .learnMoreBtn {
   background-color: white;
-  height: 30px;
+  height: 35px;
+  border: 2px solid rgb(216, 58, 255);
 }
 
 div .learnMoreBtn:hover {
-  background-color: white;
+  color: black;
+  background-color: rgb(216, 58, 255);
 }
 
-.learnMoreIcon {
+.learnMoreBtn .learnMoreIcon {
+  margin-left: 3px;
   padding: 0;
 }
 
 .learnMoreBtn:hover .learnMoreIcon {
   transform: translateX(10px);
-  background-color: white;
   transition: 0.2s ease-in-out;
+  background-color: rgba(10, 10, 10, 0.658);
+  color: white;
 }

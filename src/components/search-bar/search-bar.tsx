@@ -158,14 +158,6 @@ const SearchBar: React.FC = () => {
               ></li>
             </div>
           ))}
-        {/* showing algolia logo on the bottom of the search suggestion result*/}
-        {value.length !== 0 && suggestionOpen && hits.length !== 0 && (
-          <img
-            src={algoliaSvg}
-            alt="Search suggestions from algolia"
-            className={styles.algoliaSearch}
-          />
-        )}
       </ul>
     </div>
   );

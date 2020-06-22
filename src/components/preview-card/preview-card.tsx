@@ -51,12 +51,16 @@ const PreviewCard: React.FC<Props> = (props: Props) => {
           </Typography>
         </CardContent>
         <CardActions className={styles.actionContainer}>
-          <Button variant="contained" onClick={handleDemoClick}>
+          <Button
+            variant="contained"
+            onClick={handleDemoClick}
+            className={styles.demoBtn}
+          >
             Demo
           </Button>
 
           <Button variant="contained" className={styles.learnMoreBtn}>
-            Learn More
+            More Details
             <IconButton
               aria-label="learn-more"
               className={styles.learnMoreIcon}
