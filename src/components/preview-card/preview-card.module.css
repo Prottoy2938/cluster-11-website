@@ -25,6 +25,11 @@
 .titleContainer {
   font-weight: 600;
   font-size: 17px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.titleContainer span {
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 div .descriptionContainer {
