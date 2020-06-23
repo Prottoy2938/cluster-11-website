@@ -5,6 +5,7 @@ import PreviewCardContainer from "../src/components/preview-card-container/previ
 import fs from "fs";
 import path from "path";
 import Head from "next/head";
+import AppBar from "../src/components/app-bar/app-bar";
 
 export async function getServerSideProps(): Promise<any> {
   const apiDirectory = path.join(process.cwd(), "/pages/api");
@@ -38,7 +39,7 @@ const Home: React.FC<Props> = (props: Props) => {
         ></link>
       </Head>
       <BackgroundCanvas />
-      <SearchBar />
+      <AppBar />
       <PreviewCardContainer APIEndPoints={APIEndPoints} />
     </>
   );
