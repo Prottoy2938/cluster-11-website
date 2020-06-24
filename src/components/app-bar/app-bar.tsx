@@ -11,7 +11,7 @@ import styles from "./app-bar.module.css";
 const AppBar: React.FC = () => {
   return (
     <div className={styles.root}>
-      <NavBar position="static">
+      <NavBar position="static" className={styles.container}>
         <Toolbar>
           {/* <IconButton
             edge="start"

@@ -2,9 +2,15 @@ html,
 body {
   font-family: "Roboto Condensed", sans-serif !important;
   height: 100%;
+  margin: 0;
 }
 
 /* For CardPreview title header */
 .MuiCardHeader-content span {
   font-size: 1.35em;
+}
+
+div .MuiGrid-spacing-xs-1 {
+  width: auto !important;
+  margin: 0px !important;
 }
