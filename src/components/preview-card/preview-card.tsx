@@ -7,17 +7,12 @@ import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Tooltip from "@material-ui/core/Tooltip";
 import { Props } from "./preview-card.model";
 import styles from "./preview-card.module.css";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 
 const PreviewCard: React.FC<Props> = (props: Props) => {
-  const { title, description, githubURL, image, demoURL } = props;
-
-  const handleGithubClick = (): void => {
-    document.location.href = githubURL;
-  };
+  const { title, description, image, demoURL } = props;
 
   const handleDemoClick = (): void => {
     document.location.href = demoURL;
@@ -26,25 +21,7 @@ const PreviewCard: React.FC<Props> = (props: Props) => {
   return (
     <div className={styles.container}>
       <Card className={styles.root}>
-        <CardHeader
-          action={
-            <Tooltip title="view on github" aria-label="view on github">
-              <IconButton
-                aria-label="Give it a Star on GitHub"
-                onClick={handleGithubClick}
-              >
-                <img
-                  src="/github-alt-brands.svg"
-                  alt="github"
-                  width="32px"
-                  height="32px"
-                />
-              </IconButton>
-            </Tooltip>
-          }
-          className={styles.titleContainer}
-          title={title}
-        />
+        <CardHeader className={styles.titleContainer} title={title} />
         <CardMedia className={styles.media} image={image} />
         <CardContent>
           <Typography
