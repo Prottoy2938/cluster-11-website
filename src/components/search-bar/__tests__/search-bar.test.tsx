@@ -4,7 +4,7 @@ import SearchBar from "../search-bar";
 
 afterEach(cleanup);
 
-test("should take a snapshot", () => {
+test("should take and match snapshot", () => {
   const { asFragment } = render(<SearchBar />);
   expect(asFragment(<SearchBar />)).toMatchSnapshot();
 });
