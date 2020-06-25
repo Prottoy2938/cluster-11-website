@@ -28,6 +28,23 @@
   font-family: "Roboto Condensed", sans-serif;
 }
 
+.titleContainer div {
+  margin-top: 0;
+}
+
+div .githubIconContainer {
+  margin-left: -12px;
+  color: black;
+}
+
+.githubIconContainer button {
+  color: black;
+}
+
+div .githubLink {
+  text-decoration: none;
+}
+
 .titleContainer span {
   font-family: "Roboto Condensed", sans-serif;
 }
@@ -57,7 +74,11 @@ div .demoBtn:hover {
 div .learnMoreContainer {
   background-color: white;
   height: 35px;
-  border: 2px solid rgb(216, 58, 255);
+  border-top: 2px solid rgb(216, 58, 255);
+  border-bottom: 2px solid rgb(216, 58, 255);
+  border-left: 1px solid rgb(216, 58, 255);
+  border-right: 1px solid rgb(216, 58, 255);
+
   margin: 0;
   display: inline-flex;
   outline: 0;
