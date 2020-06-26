@@ -4,7 +4,7 @@
 
 div .container {
   background-color: rgba(58, 58, 63, 0.486);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Roboto Condensed", sans-serif !important;
 }
 
 div .menuButton {
@@ -15,6 +15,7 @@ div .title {
   flex-grow: 1;
   display: block;
   color: rgba(255, 255, 255, 0.692);
+  font-family: "Roboto Condensed", sans-serif !important;
 }
 
 div .search {
@@ -43,18 +44,29 @@ div .searchIcon {
 
 div .inputRoot {
   color: inherit;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Roboto Condensed", sans-serif !important;
 }
 
 div .inputInput {
   padding: 8px 8px 8px 0;
   padding-left: calc(1em + 32px);
   transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  width: 25ch;
 }
 
 div .inputInput:focus {
-  width: 40ch;
+  width: 45ch;
+}
+
+ul.suggestionContainer {
+  width: 412px;
+  position: absolute;
+  background-color: white;
+  right: 24px;
+  padding: 0;
+}
+
+ul .suggestionText {
+  color: black;
 }
 
 /* for small screen size devices */
@@ -62,6 +74,15 @@ div .inputInput:focus {
   div .title {
     display: none;
   }
+
+  div.searchContainer {
+    width: 100%;
+  }
+
+  div.searchContainer:focus {
+    width: 100%;
+  }
+
   div .search {
     margin-left: 0;
     width: 100%;
