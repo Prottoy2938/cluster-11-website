@@ -127,8 +127,8 @@ const AppBar: React.FC = () => {
             <Typography className={styles.title} variant="h6" noWrap>
               Cluster 11
             </Typography>
-            {/* <div onBlur={handleOnBlur} className={styles.searchContainer}> */}
-            <div className={styles.searchContainer}>
+            <div onBlur={handleOnBlur} className={styles.searchContainer}>
+              {/* <div className={styles.searchContainer}> */}
               <div className={styles.search}>
                 <div className={styles.searchIcon}>
                   <SearchIcon />
@@ -148,39 +148,47 @@ const AppBar: React.FC = () => {
                   inputProps={{ "aria-label": "search" }}
                 />
               </div>
+              <ul
+                className={
+                  suggestionOpen
+                    ? styles.suggestionContainerOpen
+                    : styles.suggestionContainerClosed
+                }
+              >
+                {suggestionOpen &&
+                value.length !== 0 && //if the input field is empty, don't show suggestions
+                  hits.map((hit, i) => {
+                    console.log("I'm rendering the suggestions");
+                    return (
+                      <div
+                        className={
+                          cursor === i + 1
+                            ? styles.selected
+                            : styles.notSelected
+                        }
+                        //using `onMouseDown` instead of `onClick` to avoid collusion with parent onBlur method
+                        onMouseDown={(): void => handleSuggestionClick(i + 1)}
+                        key={uuid()}
+                      >
+                        <FontAwesomeIcon icon={faSearch} />
+                        <li
+                          className={styles.suggestionText}
+                          key={i}
+                          id={`${i + 1}`}
+                          data-testid={`${i + 1}`}
+                          value={hit._highlightResult.name.value}
+                          dangerouslySetInnerHTML={{
+                            __html: sanitizer(hit._highlightResult.name.value),
+                          }}
+                        ></li>
+                      </div>
+                    );
+                  })}
+              </ul>
             </div>
           </Toolbar>
         </NavBar>
       </div>
-      <ul className={styles.suggestionContainer}>
-        {suggestionOpen &&
-        value.length !== 0 && //if the input field is empty, don't show suggestions
-          hits.map((hit, i) => {
-            console.log("I'm rendering the suggestions");
-            return (
-              <div
-                className={
-                  cursor === i + 1 ? styles.selected : styles.notSelected
-                }
-                //using `onMouseDown` instead of `onClick` to avoid collusion with parent onBlur method
-                onMouseDown={(): void => handleSuggestionClick(i + 1)}
-                key={uuid()}
-              >
-                <FontAwesomeIcon icon={faSearch} />
-                <li
-                  className={styles.suggestionText}
-                  key={i}
-                  id={`${i + 1}`}
-                  data-testid={`${i + 1}`}
-                  value={hit._highlightResult.name.value}
-                  dangerouslySetInnerHTML={{
-                    __html: sanitizer(hit._highlightResult.name.value),
-                  }}
-                ></li>
-              </div>
-            );
-          })}
-      </ul>
     </>
   );
 };

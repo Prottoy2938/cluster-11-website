@@ -23,7 +23,6 @@ div .search {
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.158);
 
-  margin-left: 8px;
   width: auto;
 }
 
@@ -51,20 +50,23 @@ div .inputInput {
   padding: 8px 8px 8px 0;
   padding-left: calc(1em + 32px);
   transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  width: 30ch;
 }
 
 div .inputInput:focus {
   width: 45ch;
 }
 
-ul.suggestionContainer {
-  width: 412px;
-  position: absolute;
-  background-color: white;
-  right: 24px;
-  padding: 0;
+ul.suggestionContainerClosed {
+  display: none;
 }
 
+ul.suggestionContainerOpen {
+  display: block;
+  padding-left: calc(1em + 32px);
+  position: absolute;
+  background-color: white;
+}
 ul .suggestionText {
   color: black;
 }
