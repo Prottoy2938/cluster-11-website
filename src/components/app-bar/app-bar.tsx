@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import NavBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
-import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import styles from "./app-bar.module.css";
 import { v4 as uuid } from "uuid";
@@ -12,8 +10,6 @@ import Router from "next/router";
 import dompurify from "dompurify";
 import algoliasearch from "algoliasearch";
 import { Hits } from "./app-bar.model";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_SEARCH_ID,
@@ -106,9 +102,6 @@ const AppBar: React.FC = () => {
     };
   }, []);
 
-  useEffect(() => {
-    console.log(suggestionOpen);
-  }, [suggestionOpen]);
   //purify the data to avoid XSS attack
   const sanitizer = dompurify.sanitize;
   return (
@@ -128,7 +121,6 @@ const AppBar: React.FC = () => {
               Cluster 11
             </Typography>
             <div onBlur={handleOnBlur} className={styles.searchContainer}>
-              {/* <div className={styles.searchContainer}> */}
               <div className={styles.search}>
                 <div className={styles.searchIcon}>
                   <SearchIcon />
@@ -150,40 +142,36 @@ const AppBar: React.FC = () => {
               </div>
               <ul
                 className={
-                  suggestionOpen
+                  suggestionOpen && value.length !== 0 && hits.length
                     ? styles.suggestionContainerOpen
                     : styles.suggestionContainerClosed
                 }
               >
                 {suggestionOpen &&
                 value.length !== 0 && //if the input field is empty, don't show suggestions
-                  hits.map((hit, i) => {
-                    console.log("I'm rendering the suggestions");
-                    return (
-                      <div
-                        className={
-                          cursor === i + 1
-                            ? styles.selected
-                            : styles.notSelected
-                        }
-                        //using `onMouseDown` instead of `onClick` to avoid collusion with parent onBlur method
-                        onMouseDown={(): void => handleSuggestionClick(i + 1)}
-                        key={uuid()}
-                      >
-                        <FontAwesomeIcon icon={faSearch} />
-                        <li
-                          className={styles.suggestionText}
-                          key={i}
-                          id={`${i + 1}`}
-                          data-testid={`${i + 1}`}
-                          value={hit._highlightResult.name.value}
-                          dangerouslySetInnerHTML={{
-                            __html: sanitizer(hit._highlightResult.name.value),
-                          }}
-                        ></li>
-                      </div>
-                    );
-                  })}
+                  hits.map((hit, i) => (
+                    <div
+                      className={
+                        cursor === i + 1 ? styles.selected : styles.notSelected
+                      }
+                      //using `onMouseDown` instead of `onClick` to avoid collusion with parent onBlur method
+                      onMouseDown={(): void => handleSuggestionClick(i + 1)}
+                      key={uuid()}
+                    >
+                      <SearchIcon className={styles.suggestionIcon} />
+
+                      <li
+                        className={styles.suggestionText}
+                        key={i}
+                        id={`${i + 1}`}
+                        data-testid={`${i + 1}`}
+                        value={hit._highlightResult.name.value}
+                        dangerouslySetInnerHTML={{
+                          __html: sanitizer(hit._highlightResult.name.value),
+                        }}
+                      ></li>
+                    </div>
+                  ))}
               </ul>
             </div>
           </Toolbar>

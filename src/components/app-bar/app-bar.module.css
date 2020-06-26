@@ -63,12 +63,47 @@ ul.suggestionContainerClosed {
 
 ul.suggestionContainerOpen {
   display: block;
-  padding-left: calc(1em + 32px);
   position: absolute;
   background-color: white;
+  width: calc(45ch + 56px);
+  padding: 0;
+  margin-top: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.suggestionContainerOpen div:nth-child(1) {
+  padding-top: 8px;
+}
+
+.suggestionContainerOpen div:last-child {
+  border-bottom: none;
+}
+
+.suggestionContainerOpen div {
+  display: flex;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+ul .suggestionIcon {
+  color: rgba(0, 0, 0, 0.54);
+  margin-left: 16px;
+  margin-right: 16px;
 }
 ul .suggestionText {
   color: black;
+  list-style-type: none;
+}
+
+.suggestionText em {
+  font-style: normal;
+  color: rgb(136, 135, 135);
+}
+
+.selected {
+  background-color: #f2f2f2;
 }
 
 /* for small screen size devices */
