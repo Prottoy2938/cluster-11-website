@@ -22,7 +22,7 @@
   padding-top: 56.25%;
 }
 
-.titleContainer {
+div .titleContainer {
   font-weight: 600;
   font-size: 17px;
   font-family: "Roboto Condensed", sans-serif;
@@ -39,6 +39,7 @@ div .githubIconContainer {
 
 .githubIconContainer button {
   color: black;
+  position: initial;
 }
 
 div .githubLink {

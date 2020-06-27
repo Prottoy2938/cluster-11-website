@@ -121,6 +121,7 @@ const AppBar: React.FC = () => {
               Cluster 11
             </Typography>
             <div onBlur={handleOnBlur} className={styles.searchContainer}>
+              {/* <div className={styles.searchContainer}> */}
               <div className={styles.search}>
                 <div className={styles.searchIcon}>
                   <SearchIcon />

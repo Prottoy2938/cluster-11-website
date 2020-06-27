@@ -70,6 +70,7 @@ ul.suggestionContainerOpen {
   margin-top: 0;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  cursor: pointer;
 }
 
 .suggestionContainerOpen div:nth-child(1) {
@@ -85,6 +86,10 @@ ul.suggestionContainerOpen {
   padding-bottom: 5px;
   padding-top: 5px;
   border-bottom: 1px solid #f2f2f2;
+}
+
+.suggestionContainerOpen div:hover {
+  background-color: #f2f2f2;
 }
 
 ul .suggestionIcon {
@@ -109,15 +114,17 @@ ul .suggestionText {
 /* for small screen size devices */
 @media only screen and (max-width: 767.98px) {
   div .title {
-    display: none;
+    /* display: ; */
   }
-
   div.searchContainer {
-    width: 100%;
+    width: fit-content;
+    max-width: 100%;
   }
 
-  div.searchContainer:focus {
-    width: 100%;
+  ul.suggestionContainerOpen {
+    width: 90vw;
+    padding: 10px 0;
+    padding-right: 16px;
   }
 
   div .search {
@@ -125,11 +132,12 @@ ul .suggestionText {
     width: 100%;
   }
   div .inputInput {
-    width: 100%;
+    width: 50vw;
+    transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   }
 
   div .inputInput:focus {
-    width: 100%;
+    width: 100vw;
   }
 
   div .inputRoot {
