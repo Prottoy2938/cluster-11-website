@@ -33,7 +33,6 @@ const AppBar: React.FC = () => {
     index
       .search(query, { hitsPerPage: 10 })
       .then((result: any) => {
-        console.log(hits);
         if (!cancelAsync.current) return null;
         setSuggestionOpen(true);
         setHits(result.hits);
@@ -121,7 +120,6 @@ const AppBar: React.FC = () => {
               Cluster 11
             </Typography>
             <div onBlur={handleOnBlur} className={styles.searchContainer}>
-              {/* <div className={styles.searchContainer}> */}
               <div className={styles.search}>
                 <div className={styles.searchIcon}>
                   <SearchIcon />
