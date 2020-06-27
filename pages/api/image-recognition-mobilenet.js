@@ -1,7 +1,7 @@
 export default (req, res) => {
   res.statusCode = 200;
   res.json({
-    title: "Image Recognition MobileNet",
+    title: "Image Recognition Starter",
     images: [
       "/imageRecognition/imageRecognitionEX.jpg",
       "/imageRecognition/imageRecognition.jpg",
@@ -9,9 +9,9 @@ export default (req, res) => {
       "/imageRecognition/imageRecognition2.jpg",
       "/imageRecognition/imageRecognition3.jpg",
     ],
-    githubURL: "https://github.com/cluster-11/image-recognition-mobileNet",
-    demoURL: "https://cluster-11.github.io/image-recognition-mobileNet/",
+    githubURL: "https://github.com/cluster-11/image-recognition-starter/",
+    demoURL: "https://cluster-11.github.io/image-recognition-starter/",
     description:
-      "Basic Image Recognition Application written for the web. To do this, it takes help from ML5 library and MobileNet",
+      "Basic image recognition web application starter, uses MobileNet model",
   });
 };
