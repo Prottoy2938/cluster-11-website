@@ -66,9 +66,19 @@ const AppBar: React.FC = () => {
     //Handling submit and change url based on the selected suggestion
     else if (e.keyCode === 13) {
       e.preventDefault();
-      const href = `/webapp?app=${value.toLowerCase().replace(/ /g, "-")}`;
-      Router.push(href);
-      setSuggestionOpen(false);
+      //checking if the submitted value exits in the application name list
+      if (hits.length) {
+        for (let i = 0; i < hits.length; i++) {
+          if (hits[i].name === value) {
+            const href = `/webapp?app=${value
+              .toLowerCase()
+              .replace(/ /g, "-")}`;
+            Router.push(href);
+            setSuggestionOpen(false);
+            break;
+          }
+        }
+      }
     }
   };
 
@@ -101,6 +111,9 @@ const AppBar: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    console.log(hits);
+  }, [hits]);
   //purify the data to avoid XSS attack
   const sanitizer = dompurify.sanitize;
   return (
@@ -126,7 +139,7 @@ const AppBar: React.FC = () => {
                 </div>
                 <InputBase
                   spellCheck={false}
-                  value={value.toLowerCase()}
+                  value={value}
                   onChange={handleChange}
                   onKeyDown={handleKeyDown}
                   onFocus={handleFocus}
@@ -148,29 +161,34 @@ const AppBar: React.FC = () => {
               >
                 {suggestionOpen &&
                 value.length !== 0 && //if the input field is empty, don't show suggestions
-                  hits.map((hit, i) => (
-                    <div
-                      className={
-                        cursor === i + 1 ? styles.selected : styles.notSelected
-                      }
-                      //using `onMouseDown` instead of `onClick` to avoid collusion with parent onBlur method
-                      onMouseDown={(): void => handleSuggestionClick(i + 1)}
-                      key={uuid()}
-                    >
-                      <SearchIcon className={styles.suggestionIcon} />
+                  hits.map((hit, i) => {
+                    console.log(hit);
+                    return (
+                      <div
+                        className={
+                          cursor === i + 1
+                            ? styles.selected
+                            : styles.notSelected
+                        }
+                        //using `onMouseDown` instead of `onClick` to avoid collusion with parent onBlur method
+                        onMouseDown={(): void => handleSuggestionClick(i + 1)}
+                        key={uuid()}
+                      >
+                        <SearchIcon className={styles.suggestionIcon} />
 
-                      <li
-                        className={styles.suggestionText}
-                        key={i}
-                        id={`${i + 1}`}
-                        data-testid={`${i + 1}`}
-                        value={hit._highlightResult.name.value}
-                        dangerouslySetInnerHTML={{
-                          __html: sanitizer(hit._highlightResult.name.value),
-                        }}
-                      ></li>
-                    </div>
-                  ))}
+                        <li
+                          className={styles.suggestionText}
+                          key={i}
+                          id={`${i + 1}`}
+                          data-testid={`${i + 1}`}
+                          value={hit._highlightResult.name.value}
+                          dangerouslySetInnerHTML={{
+                            __html: sanitizer(hit._highlightResult.name.value),
+                          }}
+                        ></li>
+                      </div>
+                    );
+                  })}
               </ul>
             </div>
           </Toolbar>

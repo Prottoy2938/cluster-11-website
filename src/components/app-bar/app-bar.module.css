@@ -113,9 +113,6 @@ ul .suggestionText {
 
 /* for small screen size devices */
 @media only screen and (max-width: 767.98px) {
-  div .title {
-    /* display: ; */
-  }
   div.searchContainer {
     width: fit-content;
     max-width: 100%;
@@ -142,5 +139,11 @@ ul .suggestionText {
 
   div .inputRoot {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 495.98px) {
+  div .title {
+    display: none;
   }
 }
