@@ -10,6 +10,7 @@ import Router from "next/router";
 import dompurify from "dompurify";
 import algoliasearch from "algoliasearch";
 import { Hits } from "./app-bar.model";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_SEARCH_ID,
@@ -22,6 +23,8 @@ const AppBar: React.FC = () => {
   const [cursor, setCursor] = useState(0);
   const [value, setValue] = useState(""); //initial value comes from the url query
   const [suggestionOpen, setSuggestionOpen] = useState(true);
+  const [showTP, setShowTP] = useState(false);
+
   const cancelAsync = useRef(true);
 
   const handleChange = async (
@@ -29,6 +32,7 @@ const AppBar: React.FC = () => {
   ): Promise<void> => {
     const query = e.target.value;
     setValue(query);
+    setShowTP(false);
     //getting data from algolia for rendering search suggestions
     index
       .search(query, { hitsPerPage: 10 })
@@ -75,9 +79,12 @@ const AppBar: React.FC = () => {
               .replace(/ /g, "-")}`;
             Router.push(href);
             setSuggestionOpen(false);
+            setShowTP(false);
             break;
           }
         }
+      } else {
+        setShowTP(true);
       }
     }
   };
@@ -88,6 +95,7 @@ const AppBar: React.FC = () => {
   };
   const handleOnBlur = (): void => {
     setSuggestionOpen(false);
+    setShowTP(false);
   };
 
   //adding suggestions value on the input(search) field when the suggestion is clicked
@@ -105,15 +113,12 @@ const AppBar: React.FC = () => {
   }, [hits]);
 
   useEffect(() => {
-    //cancelling all asynchronous task before mounting the component
+    //cancelling all asynchronous task before un-mounting the component
     return (): void => {
       cancelAsync.current = false;
     };
   }, []);
 
-  useEffect(() => {
-    console.log(hits);
-  }, [hits]);
   //purify the data to avoid XSS attack
   const sanitizer = dompurify.sanitize;
   return (
@@ -137,20 +142,32 @@ const AppBar: React.FC = () => {
                 <div className={styles.searchIcon}>
                   <SearchIcon />
                 </div>
-                <InputBase
-                  spellCheck={false}
-                  value={value}
-                  onChange={handleChange}
-                  onKeyDown={handleKeyDown}
-                  onFocus={handleFocus}
-                  autoComplete="off" //removing chrome autocomplete
-                  placeholder="Search…"
+                <Tooltip
+                  title="No application found with that name"
+                  arrow={true}
+                  disableHoverListener={true}
+                  open={showTP}
+                  placement="bottom-start"
                   classes={{
-                    root: styles.inputRoot,
-                    input: styles.inputInput,
+                    tooltip: styles.toolTip,
+                    arrow: styles.toolTipArrow,
                   }}
-                  inputProps={{ "aria-label": "search" }}
-                />
+                >
+                  <InputBase
+                    spellCheck={false}
+                    value={value}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                    onFocus={handleFocus}
+                    autoComplete="off" //removing chrome autocomplete
+                    placeholder="Search…"
+                    classes={{
+                      root: styles.inputRoot,
+                      input: styles.inputInput,
+                    }}
+                    inputProps={{ "aria-label": "search" }}
+                  />
+                </Tooltip>
               </div>
               <ul
                 className={
@@ -161,34 +178,29 @@ const AppBar: React.FC = () => {
               >
                 {suggestionOpen &&
                 value.length !== 0 && //if the input field is empty, don't show suggestions
-                  hits.map((hit, i) => {
-                    console.log(hit);
-                    return (
-                      <div
-                        className={
-                          cursor === i + 1
-                            ? styles.selected
-                            : styles.notSelected
-                        }
-                        //using `onMouseDown` instead of `onClick` to avoid collusion with parent onBlur method
-                        onMouseDown={(): void => handleSuggestionClick(i + 1)}
-                        key={uuid()}
-                      >
-                        <SearchIcon className={styles.suggestionIcon} />
+                  hits.map((hit, i) => (
+                    <div
+                      className={
+                        cursor === i + 1 ? styles.selected : styles.notSelected
+                      }
+                      //using `onMouseDown` instead of `onClick` to avoid collusion with parent onBlur method
+                      onMouseDown={(): void => handleSuggestionClick(i + 1)}
+                      key={uuid()}
+                    >
+                      <SearchIcon className={styles.suggestionIcon} />
 
-                        <li
-                          className={styles.suggestionText}
-                          key={i}
-                          id={`${i + 1}`}
-                          data-testid={`${i + 1}`}
-                          value={hit._highlightResult.name.value}
-                          dangerouslySetInnerHTML={{
-                            __html: sanitizer(hit._highlightResult.name.value),
-                          }}
-                        ></li>
-                      </div>
-                    );
-                  })}
+                      <li
+                        className={styles.suggestionText}
+                        key={i}
+                        id={`${i + 1}`}
+                        data-testid={`${i + 1}`}
+                        value={hit._highlightResult.name.value}
+                        dangerouslySetInnerHTML={{
+                          __html: sanitizer(hit._highlightResult.name.value),
+                        }}
+                      ></li>
+                    </div>
+                  ))}
               </ul>
             </div>
           </Toolbar>

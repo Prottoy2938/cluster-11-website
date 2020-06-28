@@ -111,6 +111,18 @@ ul .suggestionText {
   background-color: #f2f2f2;
 }
 
+.toolTip {
+  height: 12px !important;
+  background-color: rgba(255, 217, 0, 0.555) !important;
+  padding: 10px !important;
+  padding-top: 5px !important;
+  font-size: 12px !important;
+}
+
+.toolTipArrow {
+  margin-right: 70% !important;
+}
+
 /* for small screen size devices */
 @media only screen and (max-width: 767.98px) {
   div.searchContainer {
