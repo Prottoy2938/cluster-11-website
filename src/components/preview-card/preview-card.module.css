@@ -124,3 +124,48 @@ div .learnMoreContainer:hover {
   background-color: rgba(10, 10, 10, 0.658);
   color: white;
 }
+
+/* for small screen size devices */
+@media only screen and (max-width: 767.98px) {
+  .container {
+    width: 320px;
+  }
+  div .titleContainer {
+    font-size: 16px;
+  }
+  div .demoBtn {
+    padding: 5px 16px;
+    font-size: 13px;
+  }
+
+  div .learnMoreContainer {
+    height: 33px;
+    padding: 5px 14px;
+    font-size: 13px;
+  }
+  .learnMoreContainer:hover .learnMoreIcon {
+    transform: translateX(8px);
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .container {
+    width: 90vw;
+  }
+  div .titleContainer {
+    font-size: 15px;
+  }
+  div .demoBtn {
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+
+  div .learnMoreContainer {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  .learnMoreContainer:hover .learnMoreIcon {
+    transform: translateX(5px);
+  }
+}
