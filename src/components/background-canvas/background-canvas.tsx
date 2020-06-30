@@ -1,10 +1,19 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styles from "./background-canvas.module.css";
 
 const BackgroundCanvas: React.FC = () => {
   const canvas = useRef(null);
+  const [showCanvas, setShowCanvas] = useState(true);
 
   useEffect(() => {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      setShowCanvas(false);
+      return;
+    }
     if (!canvas || !canvas.current.getContext) {
       return;
     }
@@ -222,9 +231,17 @@ const BackgroundCanvas: React.FC = () => {
     );
   }, []);
   return (
-    <div>
-      <canvas ref={canvas} className={styles.canvas}></canvas>
-    </div>
+    <>
+      {showCanvas ? (
+        <div>
+          <canvas ref={canvas} className={styles.canvas}></canvas>
+        </div>
+      ) : (
+        <div>
+          <canvas className={styles.canvas}></canvas>
+        </div>
+      )}
+    </>
   );
 };
 

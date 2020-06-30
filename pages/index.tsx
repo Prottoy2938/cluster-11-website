@@ -27,6 +27,7 @@ interface Props {
 
 const Home: React.FC<Props> = (props: Props) => {
   const { APIEndPoints } = props;
+
   return (
     <>
       <Head>
