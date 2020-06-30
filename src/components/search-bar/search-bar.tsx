@@ -5,7 +5,7 @@ import { v4 as uuid } from "uuid";
 import Router from "next/router";
 import dompurify from "dompurify";
 import algoliasearch from "algoliasearch";
-import { Hits } from "./search-bar.model";
+import { Hits, Props } from "./search-bar.model";
 import Tooltip from "@material-ui/core/Tooltip";
 import styles from "./search-bar.module.css";
 
@@ -14,8 +14,7 @@ const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_SEARCH_KEY
 );
 const index = searchClient.initIndex("application-name");
-
-const SearchBar: React.FC = () => {
+const SearchBar: React.FC<Props> = (props: Props) => {
   const [hits, setHits] = useState<Hits[]>([]);
   const [cursor, setCursor] = useState(0);
   const [value, setValue] = useState(""); //initial value comes from the url query
@@ -89,10 +88,15 @@ const SearchBar: React.FC = () => {
   const handleFocus = (e: React.SyntheticEvent): void => {
     const target = e.target as HTMLInputElement;
     target.select(); //selecting the entire text inside the input field
+    props.setHideTitle(true);
   };
   const handleOnBlur = (): void => {
     setSuggestionOpen(false);
     setShowTP(false);
+    //setting timeout for the search-container to finish transition and resize to its position.
+    setTimeout(() => {
+      props.setHideTitle(false);
+    }, 300);
   };
 
   //adding suggestions value on the input(search) field when the suggestion is clicked

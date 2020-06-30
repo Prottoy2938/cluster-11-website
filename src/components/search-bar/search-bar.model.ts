@@ -10,3 +10,7 @@ export interface Hits {
     };
   };
 }
+
+export interface Props {
+  setHideTitle: (s: boolean) => void;
+}

@@ -1,20 +1,31 @@
-div .title {
+.root {
+  flex-grow: 1;
+}
+
+.navBarContent {
+  justify-content: flex-end;
+}
+
+.title,
+.titleSM {
   flex-grow: 1;
   display: block;
   color: rgba(255, 255, 255, 0.692);
   font-family: "Roboto Condensed", sans-serif !important;
+  font-weight: normal;
 }
 
 div .container {
   background-color: rgba(58, 58, 63, 0.486);
   font-family: "Roboto Condensed", sans-serif !important;
 }
-.root {
-  flex-grow: 1;
-}
 
-@media only screen and (max-width: 495.98px) {
+/* for small screen size devices */
+@media only screen and (max-width: 767.98px) {
   div .title {
+    font-size: 17px;
+  }
+  .titleSM {
     display: none;
   }
 }
