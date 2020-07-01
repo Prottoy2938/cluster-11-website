@@ -130,6 +130,7 @@ const SearchBar: React.FC<Props> = (props: Props) => {
         </div>
         <Tooltip
           title="No application found with that name"
+          aria-label="No application found with that name"
           arrow={true}
           disableHoverListener={true}
           open={showTP}

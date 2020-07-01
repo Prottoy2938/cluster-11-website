@@ -2,23 +2,30 @@
   flex-grow: 1;
 }
 
+div .container {
+  background-color: rgba(58, 58, 63, 0.486);
+  font-family: "Roboto Condensed", sans-serif !important;
+}
+
 .navBarContent {
   justify-content: flex-end;
 }
 
 .title,
 .titleSM {
-  flex-grow: 1;
   display: block;
   color: rgba(255, 255, 255, 0.692);
   font-family: "Roboto Condensed", sans-serif !important;
   font-weight: normal;
   font-size: 20px;
+  margin: 0 auto;
 }
 
-div .container {
-  background-color: rgba(58, 58, 63, 0.486);
-  font-family: "Roboto Condensed", sans-serif !important;
+.githubIconContainerSM,
+.githubIconContainer {
+  flex-grow: 1;
+  justify-content: initial;
+  margin-left: 20px;
 }
 
 /* for small screen size devices */
@@ -27,6 +34,13 @@ div .container {
     font-size: 17px;
   }
   .titleSM {
+    display: none;
+  }
+  .githubIconContainer {
+    margin-left: 5px;
+  }
+
+  .githubIconContainerSM {
     display: none;
   }
 }
