@@ -32,11 +32,6 @@ const Home: React.FC<Props> = (props: Props) => {
     <>
       <Head>
         <title>Cluster 11 | Cluster of AI/ML Powered Application</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
-          rel="stylesheet"
-        ></link>
       </Head>
       <BackgroundCanvas />
       <AppBar />
