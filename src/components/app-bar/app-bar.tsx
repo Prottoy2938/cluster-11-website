@@ -26,26 +26,29 @@ const AppBar: React.FC = () => {
             <h3 className={hideTitle ? styles.titleSM : styles.title}>
               Cluster 11
             </h3>
-
-            <a
-              href="https://github.com/cluster-11"
-              target="_blank"
-              rel="noopener noreferrer"
+            <span
               className={
                 hideTitle
                   ? styles.githubIconContainerSM
                   : styles.githubIconContainer
               }
             >
-              <Tooltip
-                title="view github organization"
-                aria-label="view github organization"
+              <a
+                href="https://github.com/cluster-11"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <IconButton>
-                  <GitHubIcon />
-                </IconButton>
-              </Tooltip>
-            </a>
+                <Tooltip
+                  title="view github organization"
+                  aria-label="view github organization"
+                >
+                  <IconButton>
+                    <GitHubIcon />
+                  </IconButton>
+                </Tooltip>
+              </a>
+            </span>
+
             <SearchBar setHideTitle={setHideTitle} />
           </Toolbar>
         </NavBar>
