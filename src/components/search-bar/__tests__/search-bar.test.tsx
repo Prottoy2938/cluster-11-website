@@ -4,7 +4,7 @@ import SearchBar from "../search-bar";
 afterEach(cleanup);
 
 const setHideTitle = (): void => {
-  console.log("Placeholder function");
+  console.log("Placeholder function ");
 };
 
 test("should take and match snapshot", () => {
