@@ -32,7 +32,7 @@ const Parallax: React.FC<Props> = (props: Props) => {
     };
   });
 
-  const { filter, className, children, style, image, small } = props;
+  const { filter, className, children, style, background, small } = props;
   const parallaxClasses = classNames({
     [classNameCS.parallax]: true,
     [classNameCS.filter]: filter,
@@ -44,7 +44,7 @@ const Parallax: React.FC<Props> = (props: Props) => {
       className={parallaxClasses}
       style={{
         ...style,
-        backgroundImage: "url(" + image + ")",
+        backgroundColor: background,
         transform: transform,
       }}
     >

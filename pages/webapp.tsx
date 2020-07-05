@@ -9,7 +9,7 @@ import SectionCarousel from "../src/components/section-carousel/section-carousel
 const WebApp: React.FC = () => {
   return (
     <div>
-      <Parallax image="/assets/bg4.jpg">
+      <Parallax background="#091422">
         <div className={styles.container}>
           <GridContainer>
             <GridItem>

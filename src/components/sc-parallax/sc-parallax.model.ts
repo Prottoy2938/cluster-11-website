@@ -3,6 +3,6 @@ export interface Props {
   className?: any;
   children: React.ReactNode;
   style?: any;
-  image: any;
+  background: any;
   small?: boolean;
 }
