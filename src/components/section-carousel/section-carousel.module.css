@@ -1,0 +1,39 @@
+div .section {
+  padding: 70px 0;
+}
+div .marginAuto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+div .container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+@media only screen and (max-width: 576px) {
+  div .container {
+    max-width: 540px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div .container {
+    max-width: 720px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  div .container {
+    max-width: 960px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  div .container {
+    max-width: 1140px;
+  }
+}
