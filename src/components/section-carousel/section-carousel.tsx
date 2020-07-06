@@ -4,10 +4,12 @@ import LocationOn from "@material-ui/icons/LocationOn";
 import GridContainer from "../grid-utils/grid-container/grid-container";
 import GridItem from "../grid-utils/grid-item/grid-item";
 import Card from "../sc-card/sc-card";
-import image1 from "../../../public/assets/bg.jpg";
-import image2 from "../../../public/assets/bg2.jpg";
-import image3 from "../../../public/assets/bg3.jpg";
+import image1 from "/assets/bg.jpg";
+import image2 from "/assets/bg2.jpg";
+import image3 from "/assets/bg3.jpg";
 import styles from "./section-carousel.module.css";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 
 const SectionCarousel: React.FC = () => {
   const settings = {
@@ -17,6 +19,8 @@ const SectionCarousel: React.FC = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
+    // prevArrow: <ArrowBackIosIcon />,
+    // nextArrow: <ArrowForwardIosIcon />,
   };
 
   return (
@@ -27,7 +31,11 @@ const SectionCarousel: React.FC = () => {
             <Card carousel>
               <Carousel {...settings}>
                 <div>
-                  <img src={image1} alt="First slide" className="slick-image" />
+                  <img
+                    src="/assets/bg2.jpg"
+                    alt="First slide"
+                    className="slick-image"
+                  />
                   <div className="slick-caption">
                     <h4>
                       <LocationOn className="slick-icons" />
@@ -37,7 +45,7 @@ const SectionCarousel: React.FC = () => {
                 </div>
                 <div>
                   <img
-                    src={image2}
+                    src="/assets/bg.jpg"
                     alt="Second slide"
                     className="slick-image"
                   />
@@ -49,7 +57,11 @@ const SectionCarousel: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <img src={image3} alt="Third slide" className="slick-image" />
+                  <img
+                    src="/assets/bg3.jpg"
+                    alt="Third slide"
+                    className="slick-image"
+                  />
                   <div className="slick-caption">
                     <h4>
                       <LocationOn className="slick-icons" />
