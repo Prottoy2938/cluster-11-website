@@ -44,9 +44,7 @@ const SearchBar: React.FC<Props> = (props: Props) => {
 
   const handleSuggestionClick = (e: number): void => {
     const suggestionValue = document.getElementById(e.toString()).innerText;
-    const href = `/webapp?app=${suggestionValue
-      .toLowerCase()
-      .replace(/ /g, "-")}`;
+    const href = `/webapp?name=${encodeURIComponent(suggestionValue)}`;
     Router.push(href);
   };
 

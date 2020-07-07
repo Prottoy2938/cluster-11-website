@@ -13,6 +13,7 @@ import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 import Tooltip from "@material-ui/core/Tooltip";
+import Link from "next/link";
 
 const PreviewCard: React.FC<Props> = (props: Props) => {
   const { title, description, image, demoURL, githubURL } = props;
@@ -65,16 +66,17 @@ const PreviewCard: React.FC<Props> = (props: Props) => {
           >
             Demo
           </Button>
-
-          <div className={styles.learnMoreContainer}>
-            More Details
-            <IconButton
-              aria-label="learn-more"
-              className={styles.learnMoreIcon}
-            >
-              <ArrowRightAltIcon />
-            </IconButton>
-          </div>
+          <Link href={`/webapp?name=${encodeURIComponent(title)}`}>
+            <div className={styles.learnMoreContainer}>
+              More Details
+              <IconButton
+                aria-label="learn-more"
+                className={styles.learnMoreIcon}
+              >
+                <ArrowRightAltIcon />
+              </IconButton>
+            </div>
+          </Link>
         </CardActions>
       </Card>
     </div>

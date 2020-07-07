@@ -8,8 +8,8 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import Tooltip from "@material-ui/core/Tooltip";
 
 const AppBar: React.FC = () => {
+  //the search-bar enter, changes url before completing setHideTitle function. Thats producing the warning
   const [hideTitle, setHideTitle] = useState(false);
-  const hide = true;
   return (
     <>
       <div className={styles.root}>

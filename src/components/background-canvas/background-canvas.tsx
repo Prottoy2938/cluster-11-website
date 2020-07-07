@@ -157,19 +157,21 @@ const BackgroundCanvas: React.FC = () => {
         ********************/
 
     function onResize(): void {
-      X = canvas.current.width = window.innerWidth;
-      Y = canvas.current.height = window.innerHeight;
-      if (X < 768) {
-        minRadius = 70;
-        maxRadius = 100;
-      } else {
-        minRadius = 100;
-        maxRadius = 130;
-      }
-      blooms = [];
-      for (let i = 0; i < bloomNum; i++) {
-        const bloom = new Bloom(ctx, X / 2, Y / 2, i);
-        blooms.push(bloom);
+      if (canvas && canvas.current) {
+        X = canvas.current.width = window.innerWidth;
+        Y = canvas.current.height = window.innerHeight;
+        if (X < 768) {
+          minRadius = 70;
+          maxRadius = 100;
+        } else {
+          minRadius = 100;
+          maxRadius = 130;
+        }
+        blooms = [];
+        for (let i = 0; i < bloomNum; i++) {
+          const bloom = new Bloom(ctx, X / 2, Y / 2, i);
+          blooms.push(bloom);
+        }
       }
     }
 

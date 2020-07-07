@@ -6,8 +6,12 @@ import Parallax from "../src/components/sc-parallax/sc-parallax";
 import styles from "../src/page-props&-style/webapp.module.css";
 import SectionCarousel from "../src/components/section-carousel/section-carousel";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const WebApp: React.FC = () => {
+  const router = useRouter();
+  console.log(router.query);
+
   return (
     <>
       <Head>
