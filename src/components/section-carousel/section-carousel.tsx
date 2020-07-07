@@ -4,12 +4,7 @@ import LocationOn from "@material-ui/icons/LocationOn";
 import GridContainer from "../grid-utils/grid-container/grid-container";
 import GridItem from "../grid-utils/grid-item/grid-item";
 import Card from "../sc-card/sc-card";
-import image1 from "/assets/bg.jpg";
-import image2 from "/assets/bg2.jpg";
-import image3 from "/assets/bg3.jpg";
 import styles from "./section-carousel.module.css";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 
 const SectionCarousel: React.FC = () => {
   const settings = {
@@ -19,8 +14,6 @@ const SectionCarousel: React.FC = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
-    // prevArrow: <ArrowBackIosIcon />,
-    // nextArrow: <ArrowForwardIosIcon />,
   };
 
   return (
