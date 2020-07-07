@@ -59,6 +59,7 @@ div .MuiGrid-spacing-xs-1 {
 .slick-slider .slick-image {
   width: 100% !important;
   display: inline-flex !important;
+  vertical-align: middle;
 }
 .slick-list {
   position: relative;
