@@ -116,9 +116,13 @@ ul .suggestionText {
     max-width: 100%;
   }
 
+  ul .suggestionText {
+    font-size: 15px;
+  }
+
   ul.suggestionContainerOpen {
     width: calc(100% - 48px);
-    padding: 5px 0;
+    padding: 0;
   }
 
   div .search {

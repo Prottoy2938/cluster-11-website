@@ -13,9 +13,14 @@ const PreviewCardContainer: React.FC<Props> = (props: Props) => {
   useEffect(() => {
     //mapping though every available api
     APIEndPoints.map((endpoint) => {
-      axios.get(`/api/${endpoint}`).then(({ data }) => {
-        setApplicationData((applicationData) => [...applicationData, data]);
-      });
+      axios
+        .get(`/api/${endpoint}`)
+        .then(({ data }) => {
+          setApplicationData((applicationData) => [...applicationData, data]);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     });
   }, []);
 

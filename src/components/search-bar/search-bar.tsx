@@ -68,9 +68,7 @@ const SearchBar: React.FC<Props> = (props: Props) => {
       if (hits.length) {
         for (let i = 0; i < hits.length; i++) {
           if (hits[i].name === value) {
-            const href = `/webapp?app=${value
-              .toLowerCase()
-              .replace(/ /g, "-")}`;
+            const href = `/webapp?name=${encodeURIComponent(value)}`;
             Router.push(href);
             setSuggestionOpen(false);
             setShowTP(false);

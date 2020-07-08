@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import GridContainer from "../src/components/grid-utils/grid-container/grid-container";
 import GridItem from "../src/components/grid-utils/grid-item/grid-item";
@@ -7,12 +7,28 @@ import styles from "../src/page-props&-style/webapp.module.css";
 import SectionCarousel from "../src/components/section-carousel/section-carousel";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 const WebApp: React.FC = () => {
   const router = useRouter();
-  //BRING BACK THE SEARCH-BAR TEST FILES
-  //https://stackoverflow.com/questions/53648652/how-to-use-environment-variables-in-github-page
-  // console.log(router.query.name);
+  const [appData, setAppData] = useState({});
+  const appName = router.query.name.toString().toLowerCase().replace(/ /g, "-");
+
+  //fetching data base on the query app name
+  useEffect(() => {
+    axios
+      .get(`/api/${appName}`)
+      .then(({ data }) => {
+        setAppData(data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
+
+  useEffect(() => {
+    console.log(appData);
+  }, [appData]);
 
   return (
     <>
