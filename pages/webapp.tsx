@@ -10,7 +10,9 @@ import { useRouter } from "next/router";
 
 const WebApp: React.FC = () => {
   const router = useRouter();
-  console.log(router.query);
+  //BRING BACK THE SEARCH-BAR TEST FILES
+  //https://stackoverflow.com/questions/53648652/how-to-use-environment-variables-in-github-page
+  // console.log(router.query.name);
 
   return (
     <>
