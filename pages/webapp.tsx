@@ -8,22 +8,26 @@ import SectionCarousel from "../src/components/section-carousel/section-carousel
 import Head from "next/head";
 import { useRouter } from "next/router";
 import axios from "axios";
+import AppBar from "../src/components/app-bar/app-bar";
 
 const WebApp: React.FC = () => {
   const router = useRouter();
   const [appData, setAppData] = useState({});
-  const appName = router.query.name.toString().toLowerCase().replace(/ /g, "-");
 
   //fetching data base on the query app name
   useEffect(() => {
-    axios
-      .get(`/api/${appName}`)
-      .then(({ data }) => {
-        setAppData(data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    const { name } = router.query;
+    if (name) {
+      const appName = name.toString().toLowerCase().replace(/ /g, "-");
+      axios
+        .get(`/api/${appName}`)
+        .then(({ data }) => {
+          setAppData(data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
   }, []);
 
   useEffect(() => {
@@ -39,6 +43,8 @@ const WebApp: React.FC = () => {
           rel="stylesheet"
         />
       </Head>
+      {/* fade in appbar */}
+      <AppBar backgroundColor="rgb(9, 17, 28)" />
       <div>
         <Parallax background="#091422">
           <div className={styles.container}>

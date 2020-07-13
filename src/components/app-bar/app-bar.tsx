@@ -6,14 +6,25 @@ import styles from "./app-bar.module.css";
 import SearchBar from "../search-bar/search-bar";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import Tooltip from "@material-ui/core/Tooltip";
+import { Props } from "./app-bar.model";
 
-const AppBar: React.FC = () => {
+const AppBar: React.FC<Props> = (props: Props) => {
   //the search-bar enter, changes url before completing setHideTitle function. Thats producing the warning
   const [hideTitle, setHideTitle] = useState(false);
+  const { backgroundColor } = props;
+
   return (
     <>
       <div className={styles.root}>
-        <NavBar position="static" className={styles.container}>
+        <NavBar
+          position="static"
+          className={styles.container}
+          style={{
+            backgroundColor: backgroundColor
+              ? backgroundColor
+              : "rgba(58, 58, 63, 0.486)",
+          }}
+        >
           <Toolbar className={styles.navBarContent}>
             {/* <IconButton
             edge="start"
