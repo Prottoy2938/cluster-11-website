@@ -4,6 +4,8 @@
 
 div .container {
   font-family: "Roboto Condensed", sans-serif !important;
+  position: fixed;
+  top: 0;
 }
 
 .navBarContent {
