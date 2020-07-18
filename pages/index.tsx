@@ -32,10 +32,26 @@ const Home: React.FC<Props> = (props: Props) => {
     <>
       <Head>
         <title>Cluster 11 | Cluster of AI/ML Powered Application</title>
+
+        <meta
+          property="og:title"
+          content="Cluster 11 | Cluster of AI/ML Powered Application"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/vPzHzTY/Cluster-11-SEO-Image.png"
+        />
+        <meta
+          property="og:description"
+          content="A GitHub organization which creates open-source starter/boilerplate web applications that uses AI and machine learning."
+        />
+        <meta property="og:url" content="https://cluster-11.vercel.app/" />
+        <meta name="twitter:card" content="summary_large_image" />
         <link rel="shortcut icon" href="/favicon.png" />
       </Head>
       <BackgroundCanvas />
-      <AppBar />
+      <AppBar backgroundColor="rgba(22, 22, 22, 1)" />
       <PreviewCardContainer APIEndPoints={APIEndPoints} />
     </>
   );

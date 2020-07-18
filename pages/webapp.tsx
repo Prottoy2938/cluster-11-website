@@ -12,7 +12,9 @@ import AppBar from "../src/components/app-bar/app-bar";
 
 const WebApp: React.FC = () => {
   const router = useRouter();
-  const [appData, setAppData] = useState({});
+  const [appData, setAppData] = useState<{
+    [key: string]: any;
+  }>({});
 
   //fetching data base on the query app name
   useEffect(() => {
@@ -37,12 +39,19 @@ const WebApp: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Cluster 11 | Cluster of AI/ML Powered Application</title>
+        <title>{`${appData.title} | Cluster 11`}</title>
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/vPzHzTY/Cluster-11-SEO-Image.png"
+        />
+        <meta property="og:description" content={`${appData.description}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="shortcut icon" href="/favicon.png" />
         <link
           href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
           rel="stylesheet"
         />
-        <link rel="shortcut icon" href="/favicon.png" />
       </Head>
       <AppBar backgroundColor="rgb(9, 17, 28)" />
       <div>
@@ -51,10 +60,8 @@ const WebApp: React.FC = () => {
             <GridContainer>
               <GridItem>
                 <div className={styles.brand}>
-                  <h1 className={styles.title}>Material Kit React.</h1>
-                  <h3 className={styles.subtitle}>
-                    A Badass Material-UI Kit based on Material Design.
-                  </h3>
+                  <h1 className={styles.title}>Title</h1>
+                  <h3 className={styles.subtitle}>Application description</h3>
                 </div>
               </GridItem>
             </GridContainer>

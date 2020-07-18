@@ -22,7 +22,7 @@ const AppBar: React.FC<Props> = (props: Props) => {
           style={{
             backgroundColor: backgroundColor
               ? backgroundColor
-              : "rgba(58, 58, 63)",
+              : "rgba(22, 22, 22, 1)",
           }}
         >
           <Toolbar className={styles.navBarContent}>
