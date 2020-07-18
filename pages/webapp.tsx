@@ -42,8 +42,8 @@ const WebApp: React.FC = () => {
           href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
           rel="stylesheet"
         />
+        <link rel="shortcut icon" href="/favicon.png" />
       </Head>
-      {/* fade in appbar */}
       <AppBar backgroundColor="rgb(9, 17, 28)" />
       <div>
         <Parallax background="#091422">

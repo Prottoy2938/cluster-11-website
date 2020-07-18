@@ -1,5 +1,6 @@
 div .section {
   padding: 70px 0;
+  margin-bottom: 5vh;
 }
 div .marginAuto {
   margin-left: auto !important;

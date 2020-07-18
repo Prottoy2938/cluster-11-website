@@ -32,6 +32,7 @@ const Home: React.FC<Props> = (props: Props) => {
     <>
       <Head>
         <title>Cluster 11 | Cluster of AI/ML Powered Application</title>
+        <link rel="shortcut icon" href="/favicon.png" />
       </Head>
       <BackgroundCanvas />
       <AppBar />
