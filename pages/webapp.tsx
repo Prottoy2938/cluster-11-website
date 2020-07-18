@@ -39,13 +39,14 @@ const WebApp: React.FC = () => {
   return (
     <>
       <Head>
-        <title>{`${appData.title} | Cluster 11`}</title>
+        <title>{`${
+          appData.title ? appData.title : "Starter Application"
+        } | Cluster 11`}</title>
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
           content="https://i.ibb.co/vPzHzTY/Cluster-11-SEO-Image.png"
         />
-        <meta property="og:description" content={`${appData.description}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="shortcut icon" href="/favicon.png" />
         <link
