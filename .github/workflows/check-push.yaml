@@ -1,4 +1,4 @@
-name: Check Committed Code
+name: test status
 
 on: [push]
 
